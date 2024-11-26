@@ -10,3 +10,8 @@ class Screen:
             _ = system('cls')
         else:
             _ = system('clear')
+
+    @staticmethod
+    def header():
+        print('\nBem-vindo(a) ao jogo da forca!')
+        print('Adivinha a palavra abaixo: \n')
