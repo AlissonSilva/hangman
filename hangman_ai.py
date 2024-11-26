@@ -15,3 +15,67 @@ class Screen:
     def header():
         print('\nBem-vindo(a) ao jogo da forca!')
         print('Adivinha a palavra abaixo: \n')
+
+class Force:
+    step = [
+        '''
+            ------
+            |     |
+            |     O
+            |    \\|/
+            |     |
+            |    / \\
+''',
+        '''
+            ------
+            |     |
+            |     O
+            |    \\|/
+            |     |
+            |    / 
+''',
+        '''
+            ------
+            |     |
+            |     O
+            |    \\|/
+            |     |
+            |     
+''',
+        '''
+            ------
+            |     |
+            |     O
+            |    \\|
+            |     |
+            |      
+''',
+        '''
+            ------
+            |     |
+            |     O
+            |     |
+            |     |
+            |      
+''',
+        '''
+            ------
+            |     |
+            |     O
+            |
+            |
+            |
+''',
+        '''
+            ------
+            |     |
+            |
+            |
+            |
+            |
+''',
+    ]
+
+    @staticmethod
+    def show(chances):
+        return Force.step[chances]
