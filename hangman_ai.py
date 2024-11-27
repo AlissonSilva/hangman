@@ -85,7 +85,9 @@ class GeneratorWordsIA:
     def __init__(self):
         # Configura a chave da API
         self.client = openai.OpenAI(
-            api_key = getenv('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'),
+            # Adicionar a chave da api do openai
+            
+            api_key = getenv(''),
         )
 
     def generate_words(self, category):
