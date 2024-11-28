@@ -2,15 +2,16 @@
 import openai
 import random
 import pandas as pd
-from os import system, name,getenv
+import os
+from dotenv import load_dotenv
 
 class Screen:
     @staticmethod
     def clear_screen():
-        if name == 'nt':
-            _ = system('cls')
+        if os.name == 'nt':
+            _ = os.system('cls')
         else:
-            _ = system('clear')
+            _ = os.system('clear')
 
     @staticmethod
     def header():
@@ -82,41 +83,42 @@ class Force:
         return Force.step[chances]
 
 class GeneratorWordsIA:
-    def __init__(self):
-        # Configura a chave da API
-        self.client = openai.OpenAI(
-            # Adicionar a chave da api do openai
-            
-            api_key = getenv(''),
-        )
-
     def generate_words(self, category):
-        """Gera palavras e dicas baseadas na categoria."""
         prompt = f"Crie uma palavra e uma dica relacionadas à categoria: {category}."
-        
         try:
+            load_dotenv()
+            openai.api_key = "add-key-openai-here"
+            ct = openai.OpenAI(api_key=os.environ.setdefault("OPENAI_API_KEY","add-key-openai-here"))
 
-            # Faz a requisição ao modelo de chat
-            response = self.client.chat.completions.create(
-                model="gpt-4o-mini",  # Ou "gpt-4"
+            response = ct.chat.completions.create(
                 messages=[
-                    {"role": "system", "content": "Você é um gerador de palavras e dicas."},
-                    {"role": "user", "content": prompt}
+                    {
+                        "role": "user", 
+                        "content": prompt
+                    }
                 ],
-                max_tokens=50  # Limite de tokens na resposta
+                model="gpt-3.5-turbo",
             )
 
-            # Extrai a resposta do modelo
             text_generate = response["choices"][0]["message"]["content"].strip()
-
-            # Separa palavra e dica com base em ":"
             words, tip = text_generate.split(":", 1)
             return words.strip(), tip.strip()
-
         except Exception as e:
-            # Tratamento de erros
             print(f"Erro ao gerar palavras: {e}")
             return "WordGenerate", "TipGenerate"
+        except openai.APIConnectionError as e:
+            print("The server could not be reached")
+            print(e.__cause__)  # an underlying Exception, likely raised within httpx.
+            return "WordGenerate", "TipGenerate"
+        except openai.RateLimitError as e:
+            print("A 429 status code was received; we should back off a bit.")
+            return "WordGenerate", "TipGenerate"
+        except openai.APIStatusError as e:
+            print("Another non-200-range status code was received")
+            print(e.status_code)
+            print(e.response)
+            return "WordGenerate", "TipGenerate"
+
         
 class Hangman:
 
@@ -147,7 +149,7 @@ class Hangman:
 
             try:
                 select = int(input('Selecione uma categoria: ')) -1
-                if 0 <= select <len(self.word_categorie):
+                if 0 <= select < len(self.word_categorie):
                     return self.word_categorie[select]
                 else:
                     print('Escolha inválida. Tente novamente.')
