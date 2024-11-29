@@ -1,4 +1,4 @@
-# from openai import OpenAI
+import re
 import openai
 import random
 import pandas as pd
@@ -100,7 +100,7 @@ class GeneratorWordsIA:
             #     model="gpt-3.5-turbo",
             # )
 
-            genai.configure(api_key="AIzaSyAoarCK12vcNGq6mREYvAFq_T-DTeJp3jI")
+            genai.configure(api_key="add-key")
             model = genai.GenerativeModel("gemini-1.5-flash")
             text = "Crie uma palavra e uma dica relacionadas à categoria: "+category
             
@@ -110,11 +110,15 @@ class GeneratorWordsIA:
             # Pega o texto gerado pela resposta
             generated_text = response.text.strip()
 
-            # Divide em palavra e dica com base em "**"
-            returnText = generated_text.split("**")
+            # Regex para capturar Palavra e Dica
+            pattern = r'\*\*Palavra:\*\*\s*(.*?)\n\n\*\*Dica:\*\*\s*(.*)'
 
-            words, tip = returnText[2], returnText[4]
-            return words.strip(), tip.strip()
+            match = re.search(pattern, generated_text)
+            if match:
+                word = match.group(1)
+                tip = match.group(2)
+
+            return word.strip(), tip.strip()
         
         except Exception as e:
             print(f"Erro ao gerar palavras: {e}")
