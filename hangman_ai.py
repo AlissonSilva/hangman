@@ -3,7 +3,7 @@ import openai
 import random
 import pandas as pd
 import os
-from dotenv import load_dotenv
+import google.generativeai as genai
 
 class Screen:
     @staticmethod
@@ -86,23 +86,36 @@ class GeneratorWordsIA:
     def generate_words(self, category):
         prompt = f"Crie uma palavra e uma dica relacionadas à categoria: {category}."
         try:
-            load_dotenv()
-            openai.api_key = "add-key-openai-here"
-            ct = openai.OpenAI(api_key=os.environ.setdefault("OPENAI_API_KEY","add-key-openai-here"))
+            
+            # openai.api_key = "add-key-openai-here"
+            # ct = openai.OpenAI(api_key=os.environ.setdefault("OPENAI_API_KEY","add-key-openai-here"))
 
-            response = ct.chat.completions.create(
-                messages=[
-                    {
-                        "role": "user", 
-                        "content": prompt
-                    }
-                ],
-                model="gpt-3.5-turbo",
-            )
+            # response = ct.chat.completions.create(
+            #     messages=[
+            #         {
+            #             "role": "user", 
+            #             "content": prompt
+            #         }
+            #     ],
+            #     model="gpt-3.5-turbo",
+            # )
 
-            text_generate = response["choices"][0]["message"]["content"].strip()
-            words, tip = text_generate.split(":", 1)
+            genai.configure(api_key="AIzaSyAoarCK12vcNGq6mREYvAFq_T-DTeJp3jI")
+            model = genai.GenerativeModel("gemini-1.5-flash")
+            text = "Crie uma palavra e uma dica relacionadas à categoria: "+category
+            
+            # Faz a chamada ao modelo
+            response = model.generate_content(text)
+            
+            # Pega o texto gerado pela resposta
+            generated_text = response.text.strip()
+
+            # Divide em palavra e dica com base em "**"
+            returnText = generated_text.split("**")
+
+            words, tip = returnText[2], returnText[4]
             return words.strip(), tip.strip()
+        
         except Exception as e:
             print(f"Erro ao gerar palavras: {e}")
             return "WordGenerate", "TipGenerate"
