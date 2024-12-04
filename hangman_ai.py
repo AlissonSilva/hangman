@@ -86,26 +86,12 @@ class GeneratorWordsIA:
     def generate_words(self, category):
         prompt = f"Crie uma palavra e uma dica relacionadas à categoria: {category}."
         try:
-            
-            # openai.api_key = "add-key-openai-here"
-            # ct = openai.OpenAI(api_key=os.environ.setdefault("OPENAI_API_KEY","add-key-openai-here"))
-
-            # response = ct.chat.completions.create(
-            #     messages=[
-            #         {
-            #             "role": "user", 
-            #             "content": prompt
-            #         }
-            #     ],
-            #     model="gpt-3.5-turbo",
-            # )
 
             genai.configure(api_key="add-key")
             model = genai.GenerativeModel("gemini-1.5-flash")
-            text = "Crie uma palavra e uma dica relacionadas à categoria: "+category
             
             # Faz a chamada ao modelo
-            response = model.generate_content(text)
+            response = model.generate_content(prompt)
             
             # Pega o texto gerado pela resposta
             generated_text = response.text.strip()
