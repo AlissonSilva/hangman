@@ -24,7 +24,6 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
   - `re` - Para uso de expressões regulares.
   - `pandas` - Manipulação de dados em arquivos Excel.
   - `google.generativeai` - Geração de palavras e dicas usando IA.
-  - 
   - `random` - Seleção aleatória de palavras.
 
 ---
