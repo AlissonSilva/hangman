@@ -54,10 +54,69 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
 
 2. **Configure a chave de API de IA (opcional):**
   - Adicione sua chave na linha correspondente:
-   ```python
-   genai.configure(api_key="sua-chave-de-api")
+     ```python
+     genai.configure(api_key="add-key")
 
 3. **Execute o jogo:**
   - Adicione sua chave na linha correspondente:
-   ```bash
-   python forca.py
+     ```bash
+     python forca.py
+
+## 🕹️ Como jogar
+1. **Escolha uma categoria no menu inicial.:**
+2. **Adivinhe a palavra digitando uma letra por vez.**
+3. **Evite errar muitas vezes para não perder!**
+
+## 📝 Exemplos de saída
+  
+  ** Início do jogo: **
+     ```bash
+        Bem-vindo(a) ao jogo da forca!
+        Adivinha a palavra abaixo: 
+        
+        Categorias:
+        1 - Frutas
+        2 - Animais
+        3 - Países
+        4 - Tecnologia
+        
+        Selecione uma categoria: 1
+
+  ** Durante o jogo: **
+     ```bash
+      Bem-vindo(a) ao jogo da forca!
+      Adivinha a palavra abaixo: 
+      
+                  ------
+                  |     |
+                  |     O
+                  |    \|/
+                  |     |
+                  |    
+      
+      _ _ _ _ _
+      
+      Chances restantes: 4
+      Letras erradas: [‘x’, ‘q’]
+      
+      Dica: É uma fruta tropical.
+      
+      Digite uma letra:
+
+  ** Final do jogo **
+     ```bash
+        Bem-vindo(a) ao jogo da forca!
+        Adivinha a palavra abaixo: 
+        
+                    ------
+                    |     |
+                    |     O
+                    |    \|/
+                    |     |
+                    |    
+        
+        Você venceu! A palavra era: Manga.
+
+  
+
+  
