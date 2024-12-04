@@ -37,3 +37,27 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
    Use o comando abaixo para instalar as bibliotecas necessárias:
    ```bash
    pip install pandas google-generativeai
+
+3. **Arquivo Excel (opcional)**  
+   Crie um arquivo Excel com os seguintes requisitos:
+   - Nome da aba: words
+   - Colunas:
+    - Categorie: Categoria da palavra.
+    - Name: Palavra.
+    - Tip: Dica para a palavra.
+
+## 🚀 Como executar
+1. **Clone este repositório:**
+ ```bash
+   git clone https://github.com/seu-usuario/jogo-da-forca.git
+   cd jogo-da-forca
+
+2. **Configure a chave de API de IA (opcional):**
+  - Adicione sua chave na linha correspondente:
+   ```python
+      genai.configure(api_key="sua-chave-de-api")
+
+3. **Execute o jogo:**
+  - Adicione sua chave na linha correspondente:
+   ```bash
+      python forca.py
