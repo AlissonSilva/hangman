@@ -71,7 +71,8 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
   
   ** Início do jogo: **
      ```bash
-     Bem-vindo(a) ao jogo da forca!
+      
+        Bem-vindo(a) ao jogo da forca!
         Adivinha a palavra abaixo: 
         
         Categorias:
@@ -84,7 +85,8 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
 
   ** Durante o jogo: **
      ```bash
-     Bem-vindo(a) ao jogo da forca!
+     
+      Bem-vindo(a) ao jogo da forca!
       Adivinha a palavra abaixo: 
       
                   ------
@@ -105,7 +107,8 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
 
   ** Final do jogo **
      ```bash
-     Bem-vindo(a) ao jogo da forca!
+        
+        Bem-vindo(a) ao jogo da forca!
         Adivinha a palavra abaixo: 
         
                     ------
