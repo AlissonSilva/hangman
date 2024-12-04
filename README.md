@@ -48,16 +48,16 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
 
 ## 🚀 Como executar
 1. **Clone este repositório:**
- ```bash
+   ```bash
    git clone https://github.com/seu-usuario/jogo-da-forca.git
    cd jogo-da-forca
 
 2. **Configure a chave de API de IA (opcional):**
   - Adicione sua chave na linha correspondente:
    ```python
-      genai.configure(api_key="sua-chave-de-api")
+   genai.configure(api_key="sua-chave-de-api")
 
 3. **Execute o jogo:**
   - Adicione sua chave na linha correspondente:
    ```bash
-      python forca.py
+   python forca.py
