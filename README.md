@@ -30,7 +30,7 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
 
 ## 🔧 Pré-requisitos
 
-1. **Python instalado (3.9 ou superior)**  
+1. **Python instalado (3.12 ou superior)**  
    [Download Python](https://www.python.org/downloads/)
 
 2. **Instalar dependências**  
