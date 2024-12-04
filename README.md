@@ -69,8 +69,7 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
 
 ## 📝 Exemplos de saída
   
-  ** Início do jogo: **
-     ```bash
+### Início do jogo: ###
       
         Bem-vindo(a) ao jogo da forca!
         Adivinha a palavra abaixo: 
@@ -83,8 +82,7 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
         
         Selecione uma categoria: 1
 
-  ** Durante o jogo: **
-     ```bash
+  ### Durante o jogo: ###
      
       Bem-vindo(a) ao jogo da forca!
       Adivinha a palavra abaixo: 
@@ -105,8 +103,7 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
       
       Digite uma letra:
 
-  ** Final do jogo **
-     ```bash
+  ### Final do jogo ###
         
         Bem-vindo(a) ao jogo da forca!
         Adivinha a palavra abaixo: 
