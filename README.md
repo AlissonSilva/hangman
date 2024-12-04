@@ -49,8 +49,8 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
 ## 🚀 Como executar
 1. **Clone este repositório:**
    ```bash
-   git clone https://github.com/seu-usuario/jogo-da-forca.git
-   cd jogo-da-forca
+   git clone https://github.com/AlissonSilva/hangman.git
+   cd hangman
 
 2. **Configure a chave de API de IA (opcional):**
   - Adicione sua chave na linha correspondente:
@@ -60,7 +60,7 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
 3. **Execute o jogo:**
   - Adicione sua chave na linha correspondente:
      ```bash
-     python forca.py
+     python hangman.py
 
 ## 🕹️ Como jogar
 1. **Escolha uma categoria no menu inicial.:**
@@ -71,7 +71,7 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
   
   ** Início do jogo: **
      ```bash
-        Bem-vindo(a) ao jogo da forca!
+     Bem-vindo(a) ao jogo da forca!
         Adivinha a palavra abaixo: 
         
         Categorias:
@@ -84,7 +84,7 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
 
   ** Durante o jogo: **
      ```bash
-      Bem-vindo(a) ao jogo da forca!
+     Bem-vindo(a) ao jogo da forca!
       Adivinha a palavra abaixo: 
       
                   ------
@@ -105,7 +105,7 @@ Este é um jogo da forca implementado em Python, permitindo que os jogadores adi
 
   ** Final do jogo **
      ```bash
-        Bem-vindo(a) ao jogo da forca!
+     Bem-vindo(a) ao jogo da forca!
         Adivinha a palavra abaixo: 
         
                     ------
