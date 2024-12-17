@@ -87,7 +87,7 @@ class GeneratorWordsIA:
         prompt = f"Crie uma palavra e uma dica relacionadas à categoria: {category}."
         try:
 
-            genai.configure(api_key="add-key")
+            genai.configure(api_key="AIzaSyAoarCK12vcNGq6mREYvAFq_T-DTeJp3jI")
             model = genai.GenerativeModel("gemini-1.5-flash")
             
             # Faz a chamada ao modelo
@@ -126,6 +126,7 @@ class GeneratorWordsIA:
 class Hangman:
 
     def __init__(self, file_words=None):
+        self.generated_by = ''
         self.file_words = file_words
         self.df = None
         self.word_categorie = []
@@ -138,10 +139,12 @@ class Hangman:
 
     def load_words(self):
         if self.file_words:
-            self.df = pd.read_excel(self.file_words, sheet_name='words', usecols=['Categore', 'Name', 'Tip'])
+            self.df = pd.read_excel(self.file_words, sheet_name='words', usecols=['Categorie', 'Name', 'Tip'])
             self.word_categorie = list(self.df['Categorie'].unique())
+            self.generated_by = 'File'
         else :
             self.word_categorie = ['Frutas', 'Animais','Paises','Tecnologia']
+            self.generated_by = 'IA'
 
     def select_categorie(self):
         Screen.clear_screen()
@@ -163,8 +166,12 @@ class Hangman:
         self.load_words()
         choose_category = self.select_categorie()
         if self.df is not None:
-            words = self.df[self.df['Categorie'] == choose_category]
-            self.current_word, self.current_tip = random.choice(list(zip(words['Name'], words['Tip'])))
+            try:
+                words = self.df[self.df['Categorie'] == choose_category]
+                self.current_word, self.current_tip = random.choice(list(zip(words['Name'], words['Tip'])))
+            except:
+                self.current_word, self.current_tip = self.generator_ia.generate_words(choose_category)
+            
         else:
             self.current_word, self.current_tip = self.generator_ia.generate_words(choose_category)
 
@@ -175,6 +182,7 @@ class Hangman:
         while self.chances > 0:
             Screen.clear_screen()
             Screen.header()
+            print(f'Gerado via: {self.generated_by}')
             print(Force.show(self.chances))
             print(' '.join(self.uncovered_letter))
             print(f'\nChances restantes: {self.chances}')
@@ -203,6 +211,7 @@ class Hangman:
 
 if __name__ == '__main__':
     play = Hangman()
+    play.file_words = './files/words_hangman.xlsx'
     play.play_game()
 
     print("\nParabéns. Você está aprendendo programação em Python com a DSA. :)\n")
